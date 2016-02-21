@@ -1,0 +1,36 @@
+{
+  "name": "ajv",
+  "description": "Another JSON Schema Validator",
+  "main": "lib/ajv.js",
+  "authors": [
+    "Evgeny Poberezkin"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "JSON",
+    "schema",
+    "validator"
+  ],
+  "homepage": "https://github.com/epoberezkin/ajv",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "spec"
+  ],
+  "version": "3.7.0",
+  "_release": "3.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.7.0",
+    "commit": "8fa4d0f05f86be95c99f637a23f88e2e768282c2"
+  },
+  "_source": "git://github.com/epoberezkin/ajv.git",
+  "_target": "~3.7.0",
+  "_originalSource": "ajv",
+  "_direct": true
+}
