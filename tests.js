@@ -9,7 +9,9 @@ requirejs.config({
     jquery: 'bower_components/jquery/dist/jquery',
     compile: 'bower_components/ajv/dist/',
     tv4: 'bower_components/tv4/tv4',
-    minifyjson: 'bower_components/JSON.minify/minify.json'
+    minifyjson: 'bower_components/JSON.minify/minify.json',
+    bigRat: 'bower_components/BigRational/BigRational',
+    "big-integer": '/bower_components/BigInteger/BigInteger'
   }
 });
 define(function(require) {
@@ -19,6 +21,11 @@ define(function(require) {
   var chai = require('chai');
   var expect = chai.expect;
   var tv4 = require('tv4');
+  var rational = require('src/rational');
+  require('bigRat');
+  debugger
+  window.rational = rational;
+  window.bigRational = bigRat;
   mocha.setup('bdd');
 
   describe("OdeToJoy", function() {
@@ -27,10 +34,7 @@ define(function(require) {
     it("should validate with tv4", function() {
       var schema = require("json!JSMusScoreSchema.json"); //must be loaded as text because regex makes bad keys
       var valid = tv4.validate(ode, schema);
-      expect(valid).to.be.true;
-      if(!valid) {
-        console.log(tv4.error);
-      }
+      expect(valid, JSON.stringify(tv4.error)).to.be.true;
     });
   });
   mocha.run();

@@ -7,6 +7,7 @@
     "root": 0,
     "enharmonic": "C"
   },
+  "nonsense":true,
   "meter": "4/4", //Interpreted as a rational using the same algorithm as durations; see beat 14 1/2 below for more info.
   "deltas": {
     "1" : {
@@ -162,7 +163,7 @@
       "RH": {
         "4": { 
           "duration": "1 1/2", //Dotted quarter note!
-          "enharmonic": "C"
+          "enharmonic": "E"
         }
       },
       "LH": { // [C#, E, B] - a rootless voicing of an A9 chord
@@ -181,9 +182,9 @@
     },
     "14 1/2": { //Fractions and rational numbers are interpreted by the regex /(\d+)(?:\D*)(\d+)?(?:\D*)(\d+)?/.
       "RH": {   //So "29/2", "14&1/2" or "14 and 1/2" could work here too.  Then again so would "14/1+2".
-        "0": {  //So don't get all creative with your rational numbers
+        "2": {  //So don't get all creative with your rational numbers
           "duration":"1/2",
-          "enharmonic":"C"
+          "enharmonic":"D"
         }
       }
     },
