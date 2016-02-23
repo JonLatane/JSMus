@@ -9,9 +9,7 @@ requirejs.config({
     jquery: 'bower_components/jquery/dist/jquery',
     compile: 'bower_components/ajv/dist/',
     tv4: 'bower_components/tv4/tv4',
-    minifyjson: 'bower_components/JSON.minify/minify.json',
-    bigRat: 'bower_components/BigRational/BigRational',
-    "big-integer": '/bower_components/BigInteger/BigInteger'
+    minifyjson: 'bower_components/JSON.minify/minify.json'
   }
 });
 define(function(require) {
@@ -22,12 +20,9 @@ define(function(require) {
   var expect = chai.expect;
   var tv4 = require('tv4');
   var rational = require('src/rational');
-  require('bigRat');
-  debugger
   window.rational = rational;
-  window.bigRational = bigRat;
-  mocha.setup('bdd');
 
+  mocha.setup('bdd');
   describe("OdeToJoy", function() {
     var odeText = require("text!examples/OdeToJoy.json");
     var ode = JSON.parse(JSON.minify(odeText));

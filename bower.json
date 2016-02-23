@@ -3,8 +3,6 @@
   "description": "A JSON Schema-based musical data format and rendering platform.",
   "version": "0.0.1",
   "dependencies": {
-    "BigInteger.js": "https://github.com/peterolson/BigInteger.js.git",
-    "BigRational.js": "https://github.com/peterolson/BigRational.js.git",
     "jquery": "~2.2.0",
     "JSON.minify": "https://github.com/getify/JSON.minify.git#javascript",
     "mocha": "~2.4.5",
