@@ -8,13 +8,14 @@ requirejs.config({
     chai: 'bower_components/chai/chai',
     jquery: 'bower_components/jquery/dist/jquery',
     compile: 'bower_components/ajv/dist/',
-    tv4: 'bower_components/tv4/tv4'
+    tv4: 'bower_components/tv4/tv4',
+    minifyjson: 'bower_components/JSON.minify/minify.json'
   }
 });
 define(function(require) {
   //var Ajv = require('ajv');
   require('mocha');
-  require('lib/minify.json')
+  require('minifyjson');
   var chai = require('chai');
   var expect = chai.expect;
   var tv4 = require('tv4');
