@@ -2,7 +2,7 @@
   "title": "JSMus Score",
   "description": "A sparse JSON representation of a musical Score.",
   "type": "object",
-  "required": ["title", "composer", "meter", "deltas"],
+  "required": ["title", "composer", "meter", "deltas", "nonsense"],
   "properties": {
     "title": {
       "type": "string",
@@ -29,27 +29,55 @@
     "deltas": {
       "type": "object",
       "id": "#",
-      "required": true,
       "patternProperties": {
         "^(-)?(\\d+)(?:\\D*)(\\d+)?(?:\\D*)(\\d+)?$" : {
           "type": "object",
+          "description": "A 'ScoreDelta' - a chunk of data indicating what instruments should play what notes, and for how long. The key pattern for these objects is a rational number that indicates a beat in the music, such as '1', '3/2', '1 1/2', '1&1/2' (all but the first are the same number). A weird string like '1*1+2' is *expected* to be equivalent to '3/2' or '1 1/2' - interpretation depends strictly on how many integer components were listed (1, 2 or 3 integer components will be interpreted as 'integer', 'num/denom' or 'integer + num/denom' respectively).",
           "properties": {
             "duration": {
-              "type": "string",
               "description": "A rational number describing how long the tones listed are to be played",
-              "pattern": "^(\\d+)(?:\\D*)(\\d+)?(?:\\D*)(\\d+)?$"
+              "anyOf": [
+                {"type": "string",
+                 "pattern": "^(\\d+)(?:\\D*)(\\d+)?(?:\\D*)(\\d+)?$"},
+                {"type": "number"}
+              ]
             }
           },
-          "description": "A 'ScoreDelta' - a chunk of data indicating what instruments should play what notes, and for how long. The key pattern for these objects is a rational number that indicates a beat in the music, such as '1', '3/2', '1 1/2', '1&1/2' (all but the first are the same number). A weird string like '1*1+2' is *expected* to be equivalent to '3/2' or '1 1/2' - interpretation depends strictly on how many integer components were listed (1, 2 or 3 integer components will be interpreted as 'integer', 'num/denom' or 'integer + num/denom' respectively).",
-          "required": [],
           "patternProperties": {
-            "^(-)?(\\d+)$": {
-              "type":"object",
-              "description": "A positive or negative integer corresponsinding to a pitch class, defined from C4 = 0."
+            "^(.*)$": {
+              "type": "object",
+              "description": "A 'StaffDelta' - data about what an instrument is doing at this particular time.",
+              "patternProperties": {
+                "^(-)?(\\d+)$": {
+                  "type":"object",
+                  "description": "Data for a positive or negative integer corresponsinding to a pitch class, defined from C4 = 0.",
+                  "required": ["enharmonic"],
+                  "anyOf": [
+                    { "$ref": "#/definitions/measurable"}
+                  ],
+                  "properties": {
+                    "duration": {
+                      "description": "A rational number describing how long this particular tone should be played.  If not provided, the parent's duration must be.",
+                      "anyOf": [
+                        {"type": "string",
+                         "pattern": "^(\\d+)(?:\\D*)(\\d+)?(?:\\D*)(\\d+)?$"},
+                        {"type": "number"}
+                      ]
+                    },
+                    "enharmonic": {
+                      "type": "string",
+                      "description": "A single letter A-G.  *Must correspond to the numeric pitch class keyed"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
             }
-          }
+          },
+          "additionalProperties": false
         }
       }
-    }
+    },
+    "additionalProperties": false
   }
 }
