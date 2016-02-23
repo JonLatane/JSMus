@@ -3,11 +3,11 @@
   "description": "A JSON Schema-based musical data format and rendering platform.",
   "version": "0.0.1",
   "dependencies": {
-    "ajv": "~3.7.0",
     "jquery": "~2.2.0",
     "mocha": "~2.4.5",
     "requirejs": "~2.1.22",
     "requirejs-plugins": "~1.0.3",
-    "text": "requirejs-text#~2.0.14"
+    "text": "requirejs-text#~2.0.14",
+    "tv4": "~1.2.7"
   }
 }

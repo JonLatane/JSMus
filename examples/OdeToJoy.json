@@ -1,209 +1,209 @@
 {
   "title": "Ode to Joy",
-  composer: "Ludwig van Beethoven",
-  arranger: "Jon Latane",
-  instruments: ["RH", "LH"],
-  key: {
-    root: 0,
-    enharmonic: "C"
+  "composer": "Ludwig van Beethoven",
+  "arranger": "Jon Latane",
+  "instruments": ["RH", "LH"],
+  "key": {
+    "root": 0,
+    "enharmonic": "C"
   },
-  meter: "4/4", //Interpreted as a rational using the same algorithm as durations; see beat 14 1/2 below for more info.
-  deltas: {
+  "meter": "4/4", //Interpreted as a rational using the same algorithm as durations; see beat 14 1/2 below for more info.
+  "deltas": {
     "1" : {
       "RH": { //Instrument note data is keyed by the note - so multiple instances of the same pitch are
         "4": { //necessarily impossible.  This E4 (4 half-steps up from C4=0) is the only one possible in the RH part.
-          duration: 1,
-          enharmonic: "E" //We don't need to know it's E4 because "4" is its absolute location.  16 is E5, -8 is E3, etc.
+          "duration": 1,
+          "enharmonic": "E" //We don't need to know it's E4 because "4" is its absolute location.  16 is E5, -8 is E3, etc.
         }
       },
       "LH": {
-        duration: 4, //A shorthand to save time and make JSON readable
+        "duration": 4, //A shorthand to save time and make JSON readable
         "-12": {
-          enharmonic: "C"
+          "enharmonic": "C"
         },
         "-8": {
-          enharmonic: "E"
+          "enharmonic": "E"
         },
         "-5": {
-          enharmonic: "G"
+          "enharmonic": "G"
         }
       }
     },
     "2": {
       "RH": {
         "4": {
-          duration:1,
-          enharmonic:"F" //This will display as an F-flat just to be confusing
+          "duration":1,
+          "enharmonic":"F" //This will display as an F-flat just to be confusing and as a test of the renderer
         }
       }
     },
     "3": {
       "RH": {
         "5": {
-          duration:1,
-          enharmonic:"F" //The renderer should know to put a natural in front of this F because of the above
+          "duration":1,
+          "enharmonic":"F" //The renderer should know to put a natural in front of this F because of the above
         }
       }
     },
     "4": {
       "RH": {
         "7": {
-          duration:1,
-          enharmonic:"G"
+          "duration":1,
+          "enharmonic":"G"
         }
       }
     },
     "5" : { //Second measure based on meter
       "RH": {
         "7": { 
-          duration: 1,
-          enharmonic: "G" //We don't need to know it's E4 because "4" is its absolute location.  16 is E5, -8 is E3, etc.
+          "duration": 1,
+          "enharmonic": "G" //We don't need to know it's E4 because "4" is its absolute location.  16 is E5, -8 is E3, etc.
         }
       },
       "LH": {
-        duration: 4,
+        "duration": 4,
         "-12": {
-          enharmonic: "C"
+          "enharmonic": "C"
         },
         "-7": {
-          enharmonic: "F"
+          "enharmonic": "F"
         },
         "-4": {
-          enharmonic: "A", //A-flat... an Fm chord. Oh shit is this gonna be a jazz progression?
-          duration: 3 //Example of overriding the duration shorthand; a hint reading through visually that 
+          "enharmonic": "A", //A-flat... an Fm chord. Oh shit is this gonna be a jazz progression?
+          "duration": 3 //Example of overriding the duration shorthand; a hint reading through visually that 
         }             //this will voice lead somewhere else on the last beat of the measure.
       }
     },
     "6": {
       "RH": {
         "5": {
-          duration:1,
-          enharmonic:"F"
+          "duration":1,
+          "enharmonic":"F"
         }
       }
     },
     "7": {
       "RH": {
         "4": {
-          duration:1,
-          enharmonic:"E"
+          "duration":1,
+          "enharmonic":"E"
         }
       }
     },
     "8": {
       "RH": {
         "2": {
-          duration:1,
-          enharmonic:"D"
+          "duration":1,
+          "enharmonic":"D"
         }
       },
       "LH": {
         "-1": {
-          duration: 1,
-          enharmonic:"B" //Tasty place to go from the Aflat
+          "duration": 1,
+          "enharmonic":"B" //Tasty place to go from the Aflat
         }
       }
     },
     "9" : {
       "RH": {
         "0": { 
-          duration: 1,
-          enharmonic: "C"
+          "duration": 1,
+          "enharmonic": "C"
         }
       },
       "LH": {
-        duration: 2,
+        "duration": 2,
         "-8": {
-          enharmonic: "E"
+          "enharmonic": "E"
         },
         "-5": {
-          enharmonic: "G"
+          "enharmonic": "G"
         },
         "-1": {
-          enharmonic: "B",
-          duration: 4 // Here the B is sustained and the other two will be voice-lead
+          "enharmonic": "B",
+          "duration": 4 // Here the B is sustained and the other two will be voice-lead
         }
       }
     },
     "10": {
       "RH": {
         "0": {
-          duration:1,
-          enharmonic:"C"
+          "duration":1,
+          "enharmonic":"C"
         }
       }
     },
     "11": {
       "RH": {
         "2": {
-          duration:1,
-          enharmonic:"D"
+          "duration":1,
+          "enharmonic":"D"
         }
       },
       "LH": {
-        duration: 2,
+        "duration": 2,
         "-10": {
-          enharmonic: "D"
+          "enharmonic": "D"
         },
         "-7": {
-          enharmonic: "F"
+          "enharmonic": "F"
         }
       }
     },
     "12": {
       "RH": {
         "4": {
-          duration:1,
-          enharmonic:"E"
+          "duration":1,
+          "enharmonic":"E"
         }
       }
     },
     "13" : {
       "RH": {
         "4": { 
-          duration: "1 1/2", //Dotted quarter note!
-          enharmonic: "C"
+          "duration": "1 1/2", //Dotted quarter note!
+          "enharmonic": "C"
         }
       },
       "LH": { // [C#, E, B] - a rootless voicing of an A9 chord
-        duration: 2,
+        "duration": 2,
         "-11": {
-          enharmonic: "C"
+          "enharmonic": "C"
         },
         "-5": {
-          enharmonic: "G"
+          "enharmonic": "G"
         },
         "-1": {
-          enharmonic: "B",
-          duration: 4 // Here the B is sustained and the other two will be voice-lead
+          "enharmonic": "B",
+          "duration": 4 // Here the B is sustained and the other two will be voice-lead
         }
       }
     },
     "14 1/2": { //Fractions and rational numbers are interpreted by the regex /(\d+)(?:\D*)(\d+)?(?:\D*)(\d+)?/.
       "RH": {   //So "29/2", "14&1/2" or "14 and 1/2" could work here too.  Then again so would "14/1+2".
         "0": {  //So don't get all creative with your rational numbers
-          duration:"1/2",
-          enharmonic:"C"
+          "duration":"1/2",
+          "enharmonic":"C"
         }
       }
     },
     "15": {
       "RH": {
         "2": {
-          duration:2,
-          enharmonic:"D"
+          "duration":2,
+          "enharmonic":"D"
         }
       },
       "LH": {
-        duration: 2,
+        "duration": 2,
         "-10": {
-          enharmonic: "D" //D major chord
+          "enharmonic": "D" //D major chord
         },
         "-6": {
-          enharmonic: "F" //sharp at render time because -6 isn't an F natural
+          "enharmonic": "F" //sharp at render time because -6 isn't an F natural
         },
         "-3": {
-          enharmonic: "A"
+          "enharmonic": "A"
         }
       }
     }

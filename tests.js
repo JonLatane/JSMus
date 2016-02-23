@@ -1,5 +1,5 @@
-debugger
 requirejs.config({
+  urlArgs: "bust=" + (new Date()).getTime(),
   paths: {
     text: 'bower_components/text/text',
     json: 'bower_components/requirejs-plugins/src/json',
@@ -7,26 +7,29 @@ requirejs.config({
     mocha: 'bower_components/mocha/mocha',
     chai: 'bower_components/chai/chai',
     jquery: 'bower_components/jquery/dist/jquery',
+    compile: 'bower_components/ajv/dist/',
+    tv4: 'bower_components/tv4/tv4'
   }
 });
 define(function(require) {
-  debugger
-  var Ajv = require('ajv');
+  //var Ajv = require('ajv');
+  require('mocha');
+  require('lib/minify.json')
   var chai = require('chai');
-  var mocha = require('mocha');
   var expect = chai.expect;
+  var tv4 = require('tv4');
   mocha.setup('bdd');
 
   describe("OdeToJoy", function() {
-    it("should validate with ajv", function() {
-      var ajv = Ajv(); // options can be passed, e.g. {allErrors: true}
-      var schema = require("json!JSMusScoreSchema.json");
-      var ode = require("json!examples/OdeToJoy.json");
-
-      var validate = ajv.compile(schema);
-      var valid = validate(ode);
-      expect(valid);
-      if (!valid) console.log(validate.errors)
+    var odeText = require("text!examples/OdeToJoy.json");
+    var ode = JSON.parse(JSON.minify(odeText));
+    it("should validate with tv4", function() {
+      var schema = require("json!JSMusScoreSchema.json"); //must be loaded as text because regex makes bad keys
+      var valid = tv4.validate(ode, schema);
+      expect(valid).to.be.true;
+      if(!valid) {
+        console.log(tv4.error);
+      }
     });
   });
   mocha.run();
