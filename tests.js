@@ -6,21 +6,25 @@ requirejs.config({
     ajv: 'bower_components/ajv/lib/ajv',
     mocha: 'bower_components/mocha/mocha',
     chai: 'bower_components/chai/chai',
-    jquery: 'bower_components/jquery/dist/jquery',
     compile: 'bower_components/ajv/dist/',
     tv4: 'bower_components/tv4/tv4',
-    minifyjson: 'bower_components/JSON.minify/minify.json'
+    minifyjson: 'bower_components/JSON.minify/minify.json',
+    react: 'bower_components/react/react-with-addons',
+    jsx: 'bower_components/jsx-requirejs-plugin/js/jsx',
+    JSXTransformer: 'bower_components/jsx-requirejs-plugin/js/JSXTransformer'
+  },
+  jsx: {
+    fileExtension: '.jsx'
   }
 });
 define(function(require) {
-  //var Ajv = require('ajv');
   require('mocha');
   require('minifyjson');
   var chai = require('chai');
   var expect = chai.expect;
   var tv4 = require('tv4');
   var rational = require('src/rational');
-  window.rational = rational;
+  var renderer = require('jsx!src/ScoreRenderer');
 
   mocha.setup('bdd');
   describe("OdeToJoy", function() {
@@ -30,6 +34,11 @@ define(function(require) {
       var schema = require("json!JSMusScoreSchema.json"); //must be loaded as text because regex makes bad keys
       var valid = tv4.validate(ode, schema);
       expect(valid, JSON.stringify(tv4.error)).to.be.true;
+    });
+    it("should render", function() {
+      var container = document.getElementById('testdisplay');
+      renderer.render(container, ode);
+      expect(true);
     });
   });
   mocha.run();

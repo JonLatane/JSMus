@@ -20,7 +20,7 @@
   }
   function Rational(value, skipReduce) {
     if(!(this instanceof Rational)) {
-      return new Rational(value);
+      return new Rational(value, skipReduce);
     }
     var c=0, //Rational of the form "c + n/d"
         n=0,

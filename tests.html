@@ -4,11 +4,23 @@
   <meta charset="utf-8">
   <title>JSMus Tests</title>
   <link rel="stylesheet" media="all" href="bower_components/mocha/mocha.css">
+  <link rel="stylesheet" media="all" href="jsmus.css">
+  <style>
+  #testdisplay {
+  	position: fixed;
+  	left:50%;
+  	right:0;
+  	top: 60px;
+  	bottom:0;
+  	background-color:#FCF2D7;
+  }
+  </style>
 </head>
 <body>
   <div id="mocha"><p><a href=".">Index</a></p></div>
   <div id="messages"></div>
   <div id="fixtures"></div>
+  <div id="testdisplay"></div>
   <script data-main="tests" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>

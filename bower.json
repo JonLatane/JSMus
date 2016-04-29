@@ -3,12 +3,14 @@
   "description": "A JSON Schema-based musical data format and rendering platform.",
   "version": "0.0.1",
   "dependencies": {
-    "jquery": "~2.2.0",
     "JSON.minify": "https://github.com/getify/JSON.minify.git#javascript",
     "mocha": "~2.4.5",
     "requirejs": "~2.1.22",
     "requirejs-plugins": "~1.0.3",
     "text": "requirejs-text#~2.0.14",
-    "tv4": "~1.2.7"
+    "tv4": "~1.2.7",
+    "chai": "^3.5.0",
+    "react": "^15.0.1",
+    "jsx-requirejs-plugin": "^0.6.2"
   }
 }
